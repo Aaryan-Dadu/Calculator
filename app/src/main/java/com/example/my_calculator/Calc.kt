@@ -53,8 +53,8 @@ class Calc : AppCompatActivity() {
 
         fun changeNumber(a: Int, b:Int) {
             if (num==0){
-                num1=(a*10)+b
-                if (num1>=2147483646){
+                num1=(num1*10)+b
+                if (num1>=999999999){
                     result.text=""
                     num1=0
                     num2=0
@@ -65,8 +65,8 @@ class Calc : AppCompatActivity() {
                 result.text="$num1"
             }
             else{
-                num2=(a*10)+b
-                if (num2>=2147483646){
+                num2=(num2*10)+b
+                if (num2>=999999999){
                     result.text=""
                     num1=0
                     num2=0
@@ -239,6 +239,7 @@ class Calc : AppCompatActivity() {
                 operation=0
                 result.text="Wrong Operation"
             }
+            a++
         }
 
 
