@@ -20,6 +20,7 @@ class Calc : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_calc)
 
+        var a=0
         var num1=0
         var num2=0
         var num=0
@@ -44,6 +45,11 @@ class Calc : AppCompatActivity() {
         var n8=findViewById<MaterialButton>(R.id.n8)
         var n9=findViewById<MaterialButton>(R.id.n9)
 
+
+        var intent2 = Intent(this, History::class.java)
+        history.setOnClickListener {
+            startActivity(intent2)
+        }
 
         fun changeNumber(a: Int, b:Int) {
             if (num==0){
@@ -184,6 +190,8 @@ class Calc : AppCompatActivity() {
             if (operation==1){
                 res=num1+num2
                 result.text= "$res"
+                intent2.putExtra("hist", res)
+                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -193,6 +201,8 @@ class Calc : AppCompatActivity() {
             else if (operation==2){
                 res=num1-num2
                 result.text= "$res"
+                intent2.putExtra("hist", res)
+                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -202,6 +212,8 @@ class Calc : AppCompatActivity() {
             else if (operation==3){
                 res=num1*num2
                 result.text= "$res"
+                intent2.putExtra("hist", res)
+                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -211,6 +223,8 @@ class Calc : AppCompatActivity() {
             else if (operation==4 &&  num2!=0){
                 res=num1/num2
                 result.text= "$res"
+                intent2.putExtra("hist", res)
+                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
