@@ -54,7 +54,7 @@ class Calc : AppCompatActivity() {
         fun changeNumber(a: Int, b:Int) {
             if (num==0){
                 num1=(num1*10)+b
-                if (num1>=999999999){
+                if (num1>=99999999){
                     result.text=""
                     num1=0
                     num2=0
@@ -66,7 +66,7 @@ class Calc : AppCompatActivity() {
             }
             else{
                 num2=(num2*10)+b
-                if (num2>=999999999){
+                if (num2>=99999999){
                     result.text=""
                     num1=0
                     num2=0
