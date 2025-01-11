@@ -13,28 +13,18 @@ class History : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_history)
 
-        var intent3 = intent
-        var histInt = intent.getIntExtra("hist", 0)
-        var a = intent.getIntExtra("a", 0)
+        var histArr = intent.getIntArrayExtra("hist") ?: intArrayOf(0,0,0,0,0)
+
+//        var a = intent.getIntExtra("a", 0)
         var hist1=findViewById<TextView>(R.id.hist1)
         var hist2=findViewById<TextView>(R.id.hist2)
         var hist3=findViewById<TextView>(R.id.hist3)
         var hist4=findViewById<TextView>(R.id.hist4)
         var hist5=findViewById<TextView>(R.id.hist5)
-        if(a%5==0){
-            hist1.text="$histInt"
-        }
-        else if(a%5==1){
-            hist2.text="$histInt"
-        }
-        else if(a%5==2){
-            hist3.text="$histInt"
-        }
-        else if(a%5==3){
-            hist4.text="$histInt"
-        }
-        else{
-            hist5.text="$histInt"
-        }
+        hist1.text="${histArr[0]}"
+        hist2.text="${histArr[1]}"
+        hist3.text="${histArr[2]}"
+        hist4.text="${histArr[3]}"
+        hist5.text="${histArr[4]}"
     }
 }

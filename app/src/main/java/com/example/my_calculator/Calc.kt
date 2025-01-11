@@ -26,6 +26,7 @@ class Calc : AppCompatActivity() {
         var num=0
         var res=0
         var operation=0
+        var histArr= intArrayOf(0, 0, 0, 0, 0)
         var result=findViewById<TextView>(R.id.result)
         var equal=findViewById<MaterialButton>(R.id.equal)
         var plus=findViewById<MaterialButton>(R.id.plus)
@@ -190,8 +191,9 @@ class Calc : AppCompatActivity() {
             if (operation==1){
                 res=num1+num2
                 result.text= "$res"
-                intent2.putExtra("hist", res)
-                intent2.putExtra("a", a)
+                histArr[a]=res
+                intent2.putExtra("hist", histArr)
+//                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -201,8 +203,9 @@ class Calc : AppCompatActivity() {
             else if (operation==2){
                 res=num1-num2
                 result.text= "$res"
-                intent2.putExtra("hist", res)
-                intent2.putExtra("a", a)
+                histArr[a]=res
+                intent2.putExtra("hist", histArr)
+//                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -212,8 +215,9 @@ class Calc : AppCompatActivity() {
             else if (operation==3){
                 res=num1*num2
                 result.text= "$res"
-                intent2.putExtra("hist", res)
-                intent2.putExtra("a", a)
+                histArr[a]=res
+                intent2.putExtra("hist", histArr)
+//                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -223,8 +227,9 @@ class Calc : AppCompatActivity() {
             else if (operation==4 &&  num2!=0){
                 res=num1/num2
                 result.text= "$res"
-                intent2.putExtra("hist", res)
-                intent2.putExtra("a", a)
+                histArr[a]=res
+                intent2.putExtra("hist", histArr)
+//                intent2.putExtra("a", a)
                 num1=0
                 num2=0
                 num=0
@@ -238,8 +243,10 @@ class Calc : AppCompatActivity() {
                 res=0
                 operation=0
                 result.text="Wrong Operation"
+                a--
             }
             a++
+            a %= 5
         }
 
 
